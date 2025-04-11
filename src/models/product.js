@@ -1,11 +1,6 @@
 const { default: mongoose } = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-    id: {
-        type: String,
-        required: true,
-        unique: true
-    },
     name: {
         type: String,
         required: true
@@ -26,7 +21,7 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    Date: {
+    created_at: {  // Renamed Date to created_at to avoid conflict with the built-in Date object.
         type: Date,
         default: Date.now
     },

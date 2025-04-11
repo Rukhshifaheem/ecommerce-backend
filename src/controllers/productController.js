@@ -39,15 +39,16 @@ const getPopularInWomen = async (req, res) => {
 const addProduct = async (req, res) => {
     try {
         const { name, image, category, new_price, old_price, available } = req.body;
-        const newProduct = new Product({ 
-            _id: uuidv4(),  // Use _id instead of id
-            name, 
-            image, 
-            category, 
-            new_price, 
-            old_price, 
-            available 
+
+        const newProduct = new Product({
+            name,
+            image,
+            category,
+            new_price,
+            old_price,
+            available
         });
+
         await newProduct.save();
         res.status(201).json(newProduct);
     } catch (error) {
